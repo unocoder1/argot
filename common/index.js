@@ -13,3 +13,6 @@ function getConcealedText(config, originalText) {
 
 
 console.log(tranformations.RemoveNonASCII);
+const asd = tranformations.Compress.getEncoded("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
+console.log(asd);
+console.log(tranformations.Compress.getEncoded(asd));
