@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/unocoder1/argot/issues"
   },
-  "homepage": "https://github.com/unocoder1/argot#readme"
+  "homepage": "https://github.com/unocoder1/argot#readme",
+  "dependencies": {
+    "remove-accents": "^0.4.3"
+  }
 }
