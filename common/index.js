@@ -1,3 +1,6 @@
+const tranformations = require('./transformations');
+
+
 function getConcealedText(config, originalText) {
 	if (config.debug === true) return "debug";
 
@@ -7,3 +10,6 @@ function getConcealedText(config, originalText) {
 
 	return concealedText;
 }
+
+
+console.log(tranformations.RemoveNonASCII);

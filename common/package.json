@@ -4,6 +4,7 @@
   "description": "Text steganography browser extension protecting free speech",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "test"
   },
   "repository": {
