@@ -13,6 +13,6 @@ function getConcealedText(config, originalText) {
 
 
 console.log(transformations);
-const asd = transformations.Compress.getEncoded("","aaaaaaaaaaaaaaaaaaaaaaaaaaa");
+const asd = transformations.Encrypt.getEncoded({password: "asd"},"aaaaaaaaaaaaaaaaaaaaaaaaaaa");
 console.log(asd);
-console.log(transformations.Compress.getDecoded("", asd));
+console.log(transformations.Encrypt.getDecoded({password: "asd"}, asd));
