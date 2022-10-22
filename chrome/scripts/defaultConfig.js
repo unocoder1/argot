@@ -1,3 +1,3 @@
 const defaultConfig = {
 	debug: false
-}
+};
