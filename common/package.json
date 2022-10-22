@@ -1,0 +1,24 @@
+{
+  "name": "text-steganography",
+  "version": "0.1.0",
+  "description": "Text steganography browser extension protecting free speech",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unocoder1/argot.git"
+  },
+  "keywords": [
+    "free",
+    "speach",
+    "steganography"
+  ],
+  "author": "unocoder1",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/unocoder1/argot/issues"
+  },
+  "homepage": "https://github.com/unocoder1/argot#readme"
+}
