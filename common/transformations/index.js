@@ -1,2 +1,2 @@
-exports.RemoveNonASCII = require('./remove-non-ascii');
-exports.Compress = require('./copmress');
+module.exports.RemoveNonASCII = require('./remove-non-ascii');
+module.exports.Compress = require('./compress');

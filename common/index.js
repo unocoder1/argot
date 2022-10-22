@@ -1,4 +1,4 @@
-const tranformations = require('./transformations');
+const transformations = require('./transformations');
 
 
 function getConcealedText(config, originalText) {
@@ -12,7 +12,7 @@ function getConcealedText(config, originalText) {
 }
 
 
-console.log(tranformations.RemoveNonASCII);
-const asd = tranformations.Compress.getEncoded("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
+console.log(transformations);
+const asd = transformations.Compress.getEncoded("","aaaaaaaaaaaaaaaaaaaaaaaaaaa");
 console.log(asd);
-console.log(tranformations.Compress.getEncoded(asd));
+console.log(transformations.Compress.getDecoded("", asd));

@@ -1,14 +1,14 @@
 const accents = require('remove-accents');
 
 
-exports.RemoveNonASCIIconst  = {
+module.exports = {
 
-    getEncoded: (_config, originalText) => {
-        return accents.removeAccents(originalText);
+    getEncoded: function(_config, text) {
+        return accents.removeAccents(text);
     },
 
-    getDecoded: (_config, originalText) => {
-        return originalText;
+    getDecoded: function(_config, text) {
+        return text;
     }
 
 };
