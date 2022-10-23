@@ -3,6 +3,7 @@ module.exports.Compress = require('./compress');
 module.exports.Encrypt = require('./encrypt');
 module.exports.FixFrequencies = require('./fix-frequencies');
 module.exports.GenerateFakeText = require('./generate-fake-text');
+module.exports.MapThroughDictionary = require('./map-through-dictionary');
 
 module.exports.createTransformation = (config) => {
     var transformations = [];
