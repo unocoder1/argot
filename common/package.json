@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "test"
+    "test": "node test.js",
+    "browserify": "browserify index.js > text-steganography-bundled.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,14 @@
   },
   "homepage": "https://github.com/unocoder1/argot#readme",
   "dependencies": {
-    "remove-accents": "^0.4.3"
+    "assert": "^2.0.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "remove-accents": "^0.4.3",
+    "stream-browserify": "^3.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.74.0"
   }
 }
