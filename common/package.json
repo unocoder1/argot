@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "node test.js",
-    "browserify": "browserify index.js > text-steganography-bundled.js"
+    "bundle": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "stream-browserify": "^3.0.0"
   },
   "devDependencies": {
-    "webpack": "^5.74.0"
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   }
 }
