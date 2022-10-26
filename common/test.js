@@ -12,7 +12,14 @@ function getConcealedText(config, originalText) {
 }
 
 
-const config = {password:"a", removeNonASCII:true, compressPlainText:true, encrypt:true, fixFrequencies:true};
+const config = {
+	password:"a",
+	removeNonASCII:true,
+	compressPlainText:true,
+	encrypt:true,
+	fixFrequencies:true,
+	generateFakeText:true
+};
 const t = transformations.createTransformation(config);
 const message = "Én vagyok a Betmenn !!%56";
 console.log(message);

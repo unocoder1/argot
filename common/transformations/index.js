@@ -12,6 +12,7 @@ module.exports.createTransformation = (config) => {
     // TODO: Assert if password is provided.
     if (config.encrypt === true) { transformations.push(module.exports.Encrypt); }
     if (config.fixFrequencies === true) { transformations.push(module.exports.FixFrequencies); }
+    if (config.generateFakeText === true) { transformations.push(module.exports.GenerateFakeText); }
 
     return {
         getEncoded: (config, text) => {
