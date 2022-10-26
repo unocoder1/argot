@@ -11,6 +11,7 @@ module.exports.createTransformation = (config) => {
     if (config.compressPlainText === true) { transformations.push(module.exports.Compress); }
     // TODO: Assert if password is provided.
     if (config.encrypt === true) { transformations.push(module.exports.Encrypt); }
+    if (config.fixFrequencies === true) { transformations.push(module.exports.FixFrequencies); }
 
     return {
         getEncoded: (config, text) => {
