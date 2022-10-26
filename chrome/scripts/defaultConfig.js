@@ -1,3 +1,10 @@
 const defaultConfig = {
-	debug: false
+	debug: false,
+	password: "a",
+	removeNonASCII: true,
+	compressPlainText: true,
+	encrypt: true,
+	fixFrequencies: true,
+	generateFakeText: true,
+	mapThroughDictionary: true,
 };
