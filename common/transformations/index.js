@@ -13,6 +13,7 @@ module.exports.createTransformation = (config) => {
     if (config.encrypt === true) { transformations.push(module.exports.Encrypt); }
     if (config.fixFrequencies === true) { transformations.push(module.exports.FixFrequencies); }
     if (config.generateFakeText === true) { transformations.push(module.exports.GenerateFakeText); }
+    if (config.mapThroughDictionary === true) { transformations.push(module.exports.MapThroughDictionary); }
 
     return {
         getEncoded: (config, text) => {
