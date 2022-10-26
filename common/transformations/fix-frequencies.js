@@ -38,13 +38,13 @@ module.exports = {
 
     getEncoded: (_config, text) => {
         const buffer = Buffer.from(text, 'base64');
-        var string = "";
+        var binaryString = "";
         for (const x of buffer) {
-            string += x.toString(2).padStart(6, '0');
+            binaryString += x.toString(2).padStart(8, '0');
         }
         var encodedText = "";
         var encodingBuffer = "";
-        for (const c of string) {
+        for (const c of binaryString) {
             encodingBuffer += c;
             if (encodingBuffer in huffmanReverseTable) {
                 encodedText += huffmanReverseTable[encodingBuffer];
@@ -54,12 +54,10 @@ module.exports = {
         for (const c of encodingBuffer) {
             if (c === "0") {
                 encodedText += "!";
-                console.log("cucc2");
             } else if (c === "1") {
                 encodedText += "?";
-                console.log("cucc");
             } else {
-
+                // TODO: Assert here.
             }
 
         }
@@ -67,7 +65,27 @@ module.exports = {
     },
 
     getDecoded: (_config, text) => {
-        return text;
+        var binaryString = "";
+        for (const c of text) {
+            if (c === "!") {
+                binaryString += "0"
+            } else if (c === "?") {
+                binaryString += "1"
+            } else {
+                binaryString += huffmanTable[c];
+            }
+        }
+        var decodedText = [];
+        var decodingBuffer = "";
+        for (const c of binaryString) {
+            decodingBuffer += c;
+            if (decodingBuffer.length === 8) {
+                decodedText.push(parseInt(decodingBuffer, 2));
+                decodingBuffer = "";
+            }
+        }
+        var buffer = Buffer.from(decodedText);
+        return buffer.toString('base64');
     }
 
 };
