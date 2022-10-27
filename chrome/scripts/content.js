@@ -6,6 +6,14 @@ console.log(editorArea);
 
 const editorOriginalSubmitButton = document.querySelector(':root > body > div.content > div.commentarea > form > div.usertext-edit > div.bottom-area > div.usertext-buttons > button[type="submit"]');
 console.log(editorOriginalSubmitButton);
+const editorEncodeButton = editorOriginalSubmitButton.cloneNode(false);
+editorEncodeButton.id += 0; // TODO: Ensure unique ID.
+editorEncodeButton.textContent  = "Encode";
+editorOriginalSubmitButton.parentNode.appendChild(editorEncodeButton);
+const editorNewSubmitButton = editorOriginalSubmitButton.cloneNode(false);
+editorNewSubmitButton.id += 1; // TODO: Ensure unique ID.
+editorNewSubmitButton.textContent  = "Encode and Submit";
+editorOriginalSubmitButton.parentNode.appendChild(editorNewSubmitButton);
 
 textsToHide.forEach((currentValue, currentIndex, listObj) => {
 	currentValue.innerText = getConcealedText(defaultConfig, currentValue.innerText);
