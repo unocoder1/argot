@@ -7,7 +7,7 @@
 		{
 			"js": [
 				"scripts/defaultConfig.js",
-				"scripts/text-steganography.js",
+				"scripts/text-steganography-bundled.js",
 				"scripts/content.js"
 			],
 			"matches": [
