@@ -24,5 +24,9 @@ editorNewSubmitButton.textContent  = "Encode and Submit";
 editorOriginalSubmitButton.parentNode.appendChild(editorNewSubmitButton);
 
 textsToHide.forEach((currentValue, currentIndex, listObj) => {
-	currentValue.innerText = TextSteganography.getEncodedText(defaultConfig, currentValue.innerText);
+	try {
+		currentValue.innerText = TextSteganography.getDecodedText(defaultConfig, currentValue.innerText);
+	} catch (error) {
+		console.error(error);
+	}
 });
