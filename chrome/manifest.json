@@ -14,5 +14,9 @@
 				"*://old.reddit.com/*"
 			]
 		}
-	]
+	],
+	"action": {
+		"default_popup": "popup.html",
+		"chrome_style": true
+	}
 }
