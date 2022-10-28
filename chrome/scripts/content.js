@@ -14,7 +14,7 @@ const editorNewSubmitButton = editorOriginalSubmitButton.cloneNode(false);
 editorNewSubmitButton.id += 1; // TODO: Ensure unique ID.
 editorNewSubmitButton.textContent  = "Encode and Submit";
 editorOriginalSubmitButton.parentNode.appendChild(editorNewSubmitButton);
-
+console.log(TextSteganography);
 textsToHide.forEach((currentValue, currentIndex, listObj) => {
-	currentValue.innerText = getConcealedText(defaultConfig, currentValue.innerText);
+	currentValue.innerText = TextSteganography.getEncodedText(defaultConfig, currentValue.innerText);
 });
