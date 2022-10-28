@@ -9,12 +9,20 @@ console.log(editorOriginalSubmitButton);
 const editorEncodeButton = editorOriginalSubmitButton.cloneNode(false);
 editorEncodeButton.id += 0; // TODO: Ensure unique ID.
 editorEncodeButton.textContent  = "Encode";
+editorEncodeButton.onclick = function(){
+	editorArea.value = TextSteganography.getEncodedText(defaultConfig, editorArea.value);
+	return false;  // Return false to stop form submit.
+};
 editorOriginalSubmitButton.parentNode.appendChild(editorEncodeButton);
 const editorNewSubmitButton = editorOriginalSubmitButton.cloneNode(false);
 editorNewSubmitButton.id += 1; // TODO: Ensure unique ID.
+editorNewSubmitButton.onclick = function(){
+	editorArea.value = TextSteganography.getEncodedText(defaultConfig, editorArea.value);
+	return true;  // Return true to NOT stop form submit.
+};
 editorNewSubmitButton.textContent  = "Encode and Submit";
 editorOriginalSubmitButton.parentNode.appendChild(editorNewSubmitButton);
-console.log(TextSteganography);
+
 textsToHide.forEach((currentValue, currentIndex, listObj) => {
 	currentValue.innerText = TextSteganography.getEncodedText(defaultConfig, currentValue.innerText);
 });
