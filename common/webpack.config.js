@@ -8,7 +8,7 @@ const config = {
         path: __dirname,
         filename: 'text-steganography-bundled.js',
         library: {
-            name: "getConcealedText",
+            name: "TextSteganography",
             type: "var" 
         },
     },
