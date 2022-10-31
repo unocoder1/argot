@@ -3,6 +3,7 @@ var clickedElement;
 document.addEventListener("contextmenu", function(event){
     clickedElement = event.target;
 }, true);
+
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     if (message.type === "contextMenuClicked") {
 		if (message.data.menuItemId === "encodeMenu") {
