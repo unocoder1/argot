@@ -15,8 +15,14 @@
 			]
 		}
 	],
+	"background": {
+		"service_worker": "background.js"
+	},
 	"action": {
 		"default_popup": "popup.html",
 		"chrome_style": true
-	}
+	},
+	"permissions": [
+		"contextMenus"
+	]
 }
