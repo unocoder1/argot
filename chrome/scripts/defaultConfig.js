@@ -1,6 +1,6 @@
 const defaultConfig = {
 	debug: false,
-	password: "a",
+	password: "Argot",
 	removeNonASCII: true,
 	compressPlainText: true,
 	encrypt: true,

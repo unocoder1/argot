@@ -7,12 +7,22 @@
 		{
 			"js": [
 				"scripts/defaultConfig.js",
-				"scripts/text-steganography.js",
+				"scripts/text-steganography-bundled.js",
 				"scripts/content.js"
 			],
 			"matches": [
 				"*://old.reddit.com/*"
 			]
 		}
+	],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"action": {
+		"default_popup": "popup.html",
+		"chrome_style": true
+	},
+	"permissions": [
+		"contextMenus"
 	]
 }
