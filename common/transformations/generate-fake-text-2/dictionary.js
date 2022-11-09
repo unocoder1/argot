@@ -25,11 +25,23 @@ function Dictionary() {
         this.interjection.set(letter, []);
     }
 
+    this.adverb = new Map();
+    for (const letter of alphabet) {
+        this.adverb.set(letter, []);
+    }
+
+    this.adjective = new Map();
+    for (const letter of alphabet) {
+        this.adjective.set(letter, []);
+    }
+
     this.SortAll = () => {
         for (let letter of alphabet) {
             this.noun.get(letter).sort((a, b) => b.frequency - a.frequency);
             this.verb.get(letter).sort((a, b) => b.frequency - a.frequency);
             this.interjection.get(letter).sort((a, b) => b.frequency - a.frequency);
+            this.adverb.get(letter).sort((a, b) => b.frequency - a.frequency);
+            this.adjective.get(letter).sort((a, b) => b.frequency - a.frequency);
         }
     }
 
@@ -37,7 +49,9 @@ function Dictionary() {
         const typeMapping = new Map([
             ["n", "noun"],
             ["v", "verb"],
-            ["u", "interjection"]
+            ["u", "interjection"],
+            ["r", "adverb"],
+            ["j", "adjective"]
         ]);
 
         for (const line of lemmas_60k.data){
