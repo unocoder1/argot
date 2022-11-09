@@ -32,4 +32,4 @@ console.log(t.getDecoded(config, concealed));
 const d = new Dictionary ();
 d.AddAllAndSort();
 console.log(JSON.stringify(d));
-//console.log(d.noun.get("x"));
+console.log(d.interjection);

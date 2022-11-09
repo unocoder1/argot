@@ -20,10 +20,16 @@ function Dictionary() {
         this.verb.set(letter, []);
     }
 
+    this.interjection = new Map();
+    for (const letter of alphabet) {
+        this.interjection.set(letter, []);
+    }
+
     this.SortAll = () => {
         for (let letter of alphabet) {
             this.noun.get(letter).sort((a, b) => b.frequency - a.frequency);
             this.verb.get(letter).sort((a, b) => b.frequency - a.frequency);
+            this.interjection.get(letter).sort((a, b) => b.frequency - a.frequency);
         }
     }
 
@@ -31,6 +37,7 @@ function Dictionary() {
         const typeMapping = new Map([
             ["n", "noun"],
             ["v", "verb"],
+            ["u", "interjection"]
         ]);
 
         for (const line of lemmas_60k.data){
