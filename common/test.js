@@ -1,4 +1,5 @@
 const transformations = require('./transformations');
+const Dictionary = require('./transformations/generate-fake-text-2/dictionary.js');
 
 
 function getConcealedText(config, originalText) {
@@ -27,3 +28,8 @@ console.log(message);
 const concealed = t.getEncoded(config, message);
 console.log(concealed);
 console.log(t.getDecoded(config, concealed));
+
+const d = new Dictionary ();
+d.AddAllAndSort();
+console.log(JSON.stringify(d));
+//console.log(d.noun.get("x"));

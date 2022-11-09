@@ -21,9 +21,9 @@ function Dictionary() {
     }
 
     this.SortAll = () => {
-        for (const letter of alphabet) {
-            this.noun[letter].sort((a, b) => b.frequency - a.frequency);
-            this.verb[letter].sort((a, b) => b.frequency - a.frequency);
+        for (let letter of alphabet) {
+            this.noun.get(letter).sort((a, b) => b.frequency - a.frequency);
+            this.verb.get(letter).sort((a, b) => b.frequency - a.frequency);
         }
     }
 
@@ -35,9 +35,9 @@ function Dictionary() {
 
         for (const line of lemmas_60k.data){
             const splittedLine = line.split('\t');
-            if (splittedLine[1] in typeMapping) {
-                const entry = new Entry(splittedLine[0], typeMapping[splittedLine[1]], parseInt(splittedLine[2]));
-                this[entry.type][entry.word[0]].push(entry);
+            if (typeMapping.has(splittedLine[1])) {
+                const entry = new DictionaryEntry(splittedLine[0], typeMapping.get(splittedLine[1]), parseInt(splittedLine[2]));
+                this[entry.type].get(entry.word[0]).push(entry);
             }
         }
     }
