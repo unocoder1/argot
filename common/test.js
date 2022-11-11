@@ -32,4 +32,4 @@ console.log(t.getDecoded(config, concealed));
 const d = new Dictionary ();
 d.AddAllAndSort();
 console.log(JSON.stringify(d));
-console.log(d.adjective);
+console.log(d.words.get("noun"));
