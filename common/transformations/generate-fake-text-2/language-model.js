@@ -10,6 +10,7 @@ function LanguageModel() {
         const sentenceStructure = sentenceStructures[Math.floor(Math.random() * sentenceStructures.length)];
         let sentence = [];
         for (let i = 0; i < initials.length; i++) {
+            // TODO: Handle fixed words.
             const words = this.dictionary.words.get(sentenceStructure[i]).get(initials[i]);
             if (words.length === 0) throw 'Cannot fill sentence structure';
             const word = words[Math.floor(Math.random() * words.length)].word;
