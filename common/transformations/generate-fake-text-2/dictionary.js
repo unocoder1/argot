@@ -1,4 +1,4 @@
-const lemmas_60k = require('./lemmas_60k.js');
+const lemmas_60k = require('./corpuses/lemmas_60k.js');
 
 
 function DictionaryEntry(word, frequency) {
