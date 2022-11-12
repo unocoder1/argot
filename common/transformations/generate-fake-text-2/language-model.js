@@ -30,6 +30,14 @@ function LanguageModel() {
         let text = "";
         let cursor = 0;
         while (cursor < initials.length) {
+            if (this.dictionary.alphabet.includes(initials[cursor]) === false) {
+                if (cursor > 0 && this.dictionary.alphabet.includes(initials[cursor - 1])) {
+                    text += " ";
+                }
+                text += initials[cursor];
+                cursor++;
+                continue;
+            }
             let sentenceLength = 0;
             for (sentenceLength = SentenceStructures.length - 1; sentenceLength > 0; sentenceLength--) {
                 if (cursor + sentenceLength > initials.length) continue;
@@ -43,7 +51,6 @@ function LanguageModel() {
                     continue;
                 }
             }
-            // TODO: This should be a last resort, special characters should be handle at the beginning of the loop.
             if (sentenceLength === 0) {
                 if (text.length !== 0) text += " ";
                 text += initials[cursor].toUpperCase() + ".";
