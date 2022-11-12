@@ -59,6 +59,14 @@ function LanguageModel() {
         }
         return text;
     }
+
+    this.DeGenerateText = (text) => {
+        return text
+            .trim()
+            .split(/\s+/)
+            .map(t => this.dictionary.alphabet.includes(t[0].toLowerCase()) ? t[0].toLowerCase() : t)
+            .join("");
+    }
 }
 
 module.exports = LanguageModel;
