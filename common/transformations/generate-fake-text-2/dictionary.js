@@ -1,4 +1,5 @@
 const lemmas_60k = require('./corpuses/lemmas_60k.js');
+const artificial = require('./corpuses/artifical.js');
 
 
 function DictionaryEntry(word, frequency) {
@@ -9,7 +10,7 @@ function DictionaryEntry(word, frequency) {
 function Dictionary() {
     this.alphabet = "abcdefghijklmnopqrstuvwxyz"; 
 
-    this.types = ["WT_noun", "WT_verb", "WT_interjection", "WT_adverb", "WT_adjective", "WT_determiner"];
+    this.types = ["WT_noun", "WT_verb", "WT_interjection", "WT_adverb", "WT_adjective", "WT_determiner", "WT_linking_verb"];
     this.typeMapping = new Map([
         ["n", "WT_noun"],
         ["v", "WT_verb"],
@@ -45,8 +46,17 @@ function Dictionary() {
         }
     }
 
+    this.AddArtificial = () => {
+        for (const line of artificial.data) {
+            const splittedLine = line.split('\t');
+            const entry = new DictionaryEntry(splittedLine[0], parseInt(splittedLine[2]));
+            this.words.get(splittedLine[1]).get(entry.word[0]).push(entry);
+        }
+    }
+
     this.AddAllAndSort = () => {
         this.AddLemmas60k();
+        this.AddArtificial();
         this.SortAll();
     }
 };

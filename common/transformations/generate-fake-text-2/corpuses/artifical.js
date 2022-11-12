@@ -1,4 +1,4 @@
-// This is an artifical corpus, all words and frequencies were chosen manually,
+// This is an artificial corpus, all words and frequencies were chosen manually,
 // and often arbitrarily.
 
 module.exports.data = [
