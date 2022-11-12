@@ -14,4 +14,8 @@ module.exports.data = [
     "smelled	WT_linking_verb	10_000_000",
     "feels	WT_linking_verb	10_000_000",
     "felt	WT_linking_verb	10_000_000",
+    "appears	WT_linking_verb	10_000_000",
+    "appeared	WT_linking_verb	10_000_000",
+    "sounds	WT_linking_verb	10_000_000",
+    "sounded	WT_linking_verb	10_000_000",
 ];
