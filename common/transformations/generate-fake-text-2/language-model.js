@@ -64,6 +64,7 @@ function LanguageModel() {
         return text
             .trim()
             .split(/\s+/)
+            .filter(t => t.length > 0)
             .map(t => this.dictionary.alphabet.includes(t[0].toLowerCase()) ? t[0].toLowerCase() : t)
             .join("");
     }

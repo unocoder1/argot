@@ -38,4 +38,4 @@ d.AddAllAndSort();
 console.log(SentenceStructures);
 const lm = new LanguageModel();
 console.log(lm.GenerateText("abcdearebrhaejheajerariitrhoirntioarhiarohoregegierigaerngneruakoitaetz!!!"));
-console.log(lm.DeGenerateText("And that is. A very good idea. %!!"));
+console.log(lm.DeGenerateText("And that   is. A very good idea. %!!"));
