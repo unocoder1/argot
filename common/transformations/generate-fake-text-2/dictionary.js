@@ -1,5 +1,5 @@
 const lemmas_60k = require('./corpuses/lemmas_60k.js');
-const artificial = require('./corpuses/artifical.js');
+const artificial = require('./corpuses/artificial.js');
 
 
 function DictionaryEntry(word, frequency) {
