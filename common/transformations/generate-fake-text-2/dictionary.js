@@ -1,9 +1,8 @@
 const lemmas_60k = require('./lemmas_60k.js');
 
 
-function DictionaryEntry(word, type, frequency) {
+function DictionaryEntry(word, frequency) {
     this.word = word;
-    this.type = type;
     this.frequency = frequency;
 }
 
@@ -40,8 +39,8 @@ function Dictionary() {
         for (const line of lemmas_60k.data) {
             const splittedLine = line.split('\t');
             if (this.typeMapping.has(splittedLine[1])) {
-                const entry = new DictionaryEntry(splittedLine[0], this.typeMapping.get(splittedLine[1]), parseInt(splittedLine[2]));
-                this.words.get(entry.type).get(entry.word[0]).push(entry);
+                const entry = new DictionaryEntry(splittedLine[0], parseInt(splittedLine[2]));
+                this.words.get(this.typeMapping.get(splittedLine[1])).get(entry.word[0]).push(entry);
             }
         }
     }
