@@ -1,6 +1,6 @@
 const allSentenceStructures = [
-    ["noun", "verb", "determiner", "adjective", "noun"],
-    ["interjection"]
+    ["WT_noun", "WT_verb", "WT_determiner", "WT_adjective", "WT_noun"],
+    ["WT_interjection"]
 ];
 
 module.exports = [];

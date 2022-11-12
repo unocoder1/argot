@@ -9,14 +9,14 @@ function DictionaryEntry(word, frequency) {
 function Dictionary() {
     this.alphabet = "abcdefghijklmnopqrstuvwxyz"; 
 
-    this.types = ["noun", "verb", "interjection", "adverb", "adjective", "determiner"];
+    this.types = ["WT_noun", "WT_verb", "WT_interjection", "WT_adverb", "WT_adjective", "WT_determiner"];
     this.typeMapping = new Map([
-        ["n", "noun"],
-        ["v", "verb"],
-        ["u", "interjection"],
-        ["r", "adverb"],
-        ["j", "adjective"],
-        ["d", "determiner"]
+        ["n", "WT_noun"],
+        ["v", "WT_verb"],
+        ["u", "WT_interjection"],
+        ["r", "WT_adverb"],
+        ["j", "WT_adjective"],
+        ["d", "WT_determiner"]
     ]);
 
     this.words = new Map();
