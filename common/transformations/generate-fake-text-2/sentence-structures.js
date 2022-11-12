@@ -1,6 +1,6 @@
 const allSentenceStructures = [
     ["WT_noun", "WT_verb", "WT_determiner", "WT_adjective", "WT_noun"],
-    ["WT_noun", "WT_linking_verbq", "WT_adjective"],
+    ["WT_noun", "WT_linking_verb", "WT_adjective"],
     ["WT_interjection"]
 ];
 
