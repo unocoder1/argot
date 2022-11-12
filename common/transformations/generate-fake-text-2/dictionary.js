@@ -1,8 +1,6 @@
 const lemmas_60k = require('./lemmas_60k.js');
 
 
-const alphabet = "abcdefghijklmnopqrstuvwxyz";
-
 function DictionaryEntry(word, type, frequency) {
     this.word = word;
     this.type = type;
@@ -10,6 +8,8 @@ function DictionaryEntry(word, type, frequency) {
 }
 
 function Dictionary() {
+    this.alphabet = "abcdefghijklmnopqrstuvwxyz"; 
+
     this.types = ["noun", "verb", "interjection", "adverb", "adjective", "determiner"];
     this.typeMapping = new Map([
         ["n", "noun"],
@@ -23,14 +23,14 @@ function Dictionary() {
     this.words = new Map();
     for (const type of this.types) {
         this.words.set(type, new Map())
-        for (const letter of alphabet) {
+        for (const letter of this.alphabet) {
             this.words.get(type).set(letter, []);
         }
     }
 
     this.SortAll = () => {
         for (const type of this.types) {
-            for (let letter of alphabet) {
+            for (let letter of this.alphabet) {
                 this.words.get(type).get(letter).sort((a, b) => b.frequency - a.frequency);
             }
         }

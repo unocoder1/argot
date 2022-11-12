@@ -37,4 +37,4 @@ d.AddAllAndSort();
 //console.log(d.words.get("interjection"));
 console.log(SentenceStructures);
 const lm = new LanguageModel();
-console.log(lm.GenerateText("abcdearebrhaejheajerariitrhoirntioarhiarohoregegierigaerngneruakoitaetz"));
+console.log(lm.GenerateText("abcdearebrhaejheajerariitrhoirntioarhiarohoregegierigaerngneruakoitaetz!!!"));
