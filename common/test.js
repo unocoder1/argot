@@ -22,7 +22,7 @@ const config = {
 	encrypt: true,
 	fixFrequencies: true,
 	generateFakeText: true,
-	mapThroughDictionary: true,
+	mapThroughDictionary: false,
 };
 const t = transformations.createTransformation(config);
 const message = "Én vagyok a Betmenn !!%56";
@@ -31,11 +31,11 @@ const concealed = t.getEncoded(config, message);
 console.log(concealed);
 console.log(t.getDecoded(config, concealed));
 
-const d = new Dictionary();
-d.AddAllAndSort();
+//const d = new Dictionary();
+//d.AddAllAndSort();
 //console.log(JSON.stringify(d));
 //console.log(d.words.get("interjection"));
-console.log(SentenceStructures);
-const lm = new LanguageModel();
-console.log(lm.GenerateText("abcdearebrhaejheajerariitrhoirntioarhiarohoregegierigaerngneruakoitaetz!!!"));
-console.log(lm.DeGenerateText("And that   is. A very good idea. %!!"));
+//console.log(SentenceStructures);
+//const lm = new LanguageModel();
+//console.log(lm.GenerateText("abcdearebrhaejheajerariitrhoirntioarhiarohoregegierigaerngneruakoitaetz!!!"));
+//console.log(lm.DeGenerateText("And that   is. A very good idea. %!!"));
