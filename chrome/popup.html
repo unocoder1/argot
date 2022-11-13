@@ -5,9 +5,61 @@
   <body>
 
     <h1>Argot</h1>
-    <button id="encodeSelectedTextButton">Encode selected text</button>
-    <button id="decodeSelectedTextButton">Decode selected text</button>
-    <ul></ul>
+
+    <button type="button">Restore default</button><br>
+
+    <label for="password">Password</label>
+    <input type="text" id="password" name="password" value="John"><br>
+
+    <label for="remove_non_ascii">Strip non-ASCII</label>
+    <fieldset id="remove_non_ascii">
+      <label for="remove_non_ascii_no">no</label>
+      <input type="radio" id="remove_non_ascii_no" name="remove_non_ascii" value="0">
+      <label for="remove_non_ascii_yes">yes</label>
+      <input type="radio" id="remove_non_ascii_yes" name="remove_non_ascii" value="1">
+    </fieldset><br>
+
+    <label for="compress_plain_text">Compress</label>
+    <fieldset id="compress_plain_text">
+      <label for="compress_plain_text_no">no</label>
+      <input type="radio" id="compress_plain_text_no" name="compress_plain_text" value="0">
+      <label for="compress_plain_text_yes">yes</label>
+      <input type="radio" id="compress_plain_text_yes" name="compress_plain_text" value="1">
+    </fieldset><br>
+
+    <label for="encrypt">Encrypt</label>
+    <fieldset id="encrypt">
+      <label for="encrypt_none">none</label>
+      <input type="radio" id="encrypt_none" name="encrypt" value="0">
+      <label for="encrypt_aes">AES-256</label>
+      <input type="radio" id="encrypt_aes" name="encrypt" value="A">
+      <label for="encrypt_blowfish">Blowfish</label>
+      <input type="radio" id="encrypt_blowfish" name="encrypt" value="B">
+    </fieldset><br>
+
+    <label for="normalize_frequencies">Normalize frequencies</label>
+    <fieldset id="normalize_frequencies">
+      <label for="normalize_frequencies_no">no</label>
+      <input type="radio" id="normalize_frequencies_no" name="normalize_frequencies" value="0">
+      <label for="normalize_frequencies_yes">yes</label>
+      <input type="radio" id="normalize_frequencies_yes" name="normalize_frequencies" value="1">
+    </fieldset><br>
+
+    <label for="generate_fake_text">Generate fake text</label>
+    <fieldset id="generate_fake_text">
+      <label for="generate_fake_text_no">no</label>
+      <input type="radio" id="generate_fake_text_no" name="generate_fake_text" value="0">
+      <label for="generate_fake_text_artisan">artisan</label>
+      <input type="radio" id="generate_fake_text_artisan" name="generate_fake_text" value="A">
+    </fieldset><br>
+
+    <label for="map_through_dictionary">Dictionary</label>
+    <fieldset id="map_through_dictionary">
+      <label for="map_through_dictionary_no">no</label>
+      <input type="radio" id="map_through_dictionary_no" name="map_through_dictionary" value="0">
+      <label for="map_through_dictionary_yes">yes</label>
+      <input type="radio" id="map_through_dictionary_yes" name="map_through_dictionary" value="1">
+    </fieldset><br>
 
     <script src="popup.js" type="module"></script>
   </body>
