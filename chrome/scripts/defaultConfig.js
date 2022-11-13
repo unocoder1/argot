@@ -4,7 +4,7 @@ const defaultConfig = {
 	removeNonASCII: true,
 	compressPlainText: true,
 	encrypt: true,
-	fixFrequencies: true,
+	normalizeFrequencies: true,
 	generateFakeText: true,
 	mapThroughDictionary: true,
 };
