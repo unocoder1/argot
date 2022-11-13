@@ -1,10 +1,10 @@
 const defaultConfig = {
 	debug: false,
 	password: "Argot",
-	removeNonASCII: true,
-	compressPlainText: true,
-	encrypt: true,
-	normalizeFrequencies: true,
-	generateFakeText: true,
-	mapThroughDictionary: true,
+	removeNonASCII: 1,
+	compressPlainText: 1,
+	encrypt: "A",
+	normalizeFrequencies: 1,
+	generateFakeText: "A",
+	mapThroughDictionary: 0,
 };
