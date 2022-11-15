@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Argot",
     "version": "0.1.0",
-    "description": "Text steganography browser extension to protect free speech",
+    "description": "Text steganography browser extension protecting free speech",
     "content_scripts": [
         {
             "js": [
