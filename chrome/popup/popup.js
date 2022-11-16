@@ -12,9 +12,33 @@ const mapThroughDictionaryFieldSet = document.getElementById("map_through_dictio
 
 restoreDefaultsButton.addEventListener("click", () => {
     getConfigShorthandFromUI();
-    getConfigShorthandFromDefaults();
+    //getConfigShorthandFromDefaults();
 });
 
+function getDefaultConfig() {
+    return new Promise((resolve, reject) => {
+        chrome.storage.sync.get('defaultConfig', (result) => {
+          // Pass any observed errors down the promise chain.
+          if (chrome.runtime.lastError) {
+            return reject(chrome.runtime.lastError);
+          }
+          // Pass the data retrieved from storage down the promise chain.
+          resolve(result.defaultConfig);
+        });
+    });
+}
+
+function setUI(config) {
+    passwordTextBox.value = config.password;
+    removeNonASCIIFieldSet.querySelector(`input[value="${config.removeNonASCII}"]`).checked = true;
+    compressPlaintextFieldSet.querySelector(`input[value="${config.compressPlainText}"]`).checked = true;
+    encryptFieldSet.querySelector(`input[value="${config.encrypt}"]`).checked = true;
+    normalizeFrequenciesFieldSet.querySelector(`input[value="${config.normalizeFrequencies}"]`).checked = true;
+    generateFakeTextFieldSet.querySelector(`input[value="${config.generateFakeText}"]`).checked = true;
+    mapThroughDictionaryFieldSet.querySelector(`input[value="${config.mapThroughDictionary}"]`).checked = true;
+}
+
+getDefaultConfig().then(defaultConfig => setUI(defaultConfig));
 
 function getConfigShorthandFromUI() {
     let configShorthand = [0, 0, 0, 0, 0, 0];
@@ -48,6 +72,6 @@ function getConfigShorthandFromDefaults() {
     return configShorthand;
 }
 
-chrome.storage.local.get(['key'], function(result) {
-    console.log('Value currently is ' + result.key);
+chrome.storage.sync.get('defaultConfig', function(result) {
+    console.log('Value currently is ' + JSON.stringify(result.defaultConfig));
 });

@@ -11,7 +11,7 @@ const defaultConfig = {
 };
 
 chrome.runtime.onInstalled.addListener(async () => {
-    chrome.storage.local.set({defaultConfig: defaultConfig}, function() {
+    chrome.storage.sync.set({defaultConfig: defaultConfig}, function() {
         console.log("Default config: " + JSON.stringify(defaultConfig));
     });
 
