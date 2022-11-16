@@ -21,7 +21,10 @@ const configControls = [
 ];
 
 restoreDefaultsButton.addEventListener("click", () => {
-    getDefaultConfigFromStorage().then(config => setUI(config));
+    getDefaultConfigFromStorage().then(config => {
+        setUI(config);
+        chrome.storage.sync.set({currentConfig: getConfigFromUI ()});
+    });
 });
 
 function getDefaultConfigFromStorage() {
