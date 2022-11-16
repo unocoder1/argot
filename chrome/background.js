@@ -2,12 +2,12 @@
 const defaultConfig = {
     debug: false,
     password: "Argot",
-    removeNonASCII: 1,
-    compressPlainText: 1,
+    removeNonASCII: "1",
+    compressPlainText: "1",
     encrypt: "A",
-    normalizeFrequencies: 1,
+    normalizeFrequencies: "1",
     generateFakeText: "A",
-    mapThroughDictionary: 0,
+    mapThroughDictionary: "0",
 };
 
 chrome.runtime.onInstalled.addListener(async () => {
