@@ -21,8 +21,7 @@ const configControls = [
 ];
 
 restoreDefaultsButton.addEventListener("click", () => {
-    getConfigShorthandFromUI();
-    //getConfigShorthandFromDefaults();
+    getDefaultConfigFromStorage().then(config => setUI(config));
 });
 
 function getDefaultConfigFromStorage() {
