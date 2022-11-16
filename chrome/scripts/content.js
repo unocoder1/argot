@@ -4,28 +4,27 @@ document.addEventListener("contextmenu", function(event){
     clickedElement = event.target;
 }, true);
 
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-    if (message.type === "contextMenuClicked") {
-        if (message.data.menuItemId === "encodeMenu") {
-            try {
-                clickedElement.innerText = TextSteganography.getEncodedText(defaultConfig, clickedElement.innerText);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        if (message.data.menuItemId === "decodeMenu") {
-            try {
-                clickedElement.innerText = TextSteganography.getDecodedText(defaultConfig, clickedElement.innerText);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-    }
-});
-
-
 chrome.storage.sync.get('currentConfig', (result) => {
     const currentConfig = result.currentConfig;
+
+    chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+        if (message.type === "contextMenuClicked") {
+            if (message.data.menuItemId === "encodeMenu") {
+                try {
+                    clickedElement.innerText = TextSteganography.getEncodedText(currentConfig, clickedElement.innerText);
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+            if (message.data.menuItemId === "decodeMenu") {
+                try {
+                    clickedElement.innerText = TextSteganography.getDecodedText(currentConfig, clickedElement.innerText);
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        }
+    });
 
     const textsToHide = document.querySelectorAll(':root > body > div.content div.usertext-body > div.md');
 
