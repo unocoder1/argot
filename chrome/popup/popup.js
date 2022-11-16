@@ -10,12 +10,22 @@ const normalizeFrequenciesFieldSet = document.getElementById("normalize_frequenc
 const generateFakeTextFieldSet = document.getElementById("generate_fake_text");
 const mapThroughDictionaryFieldSet = document.getElementById("map_through_dictionary");
 
+const configControls = [
+    passwordTextBox,
+    removeNonASCIIFieldSet,
+    compressPlaintextFieldSet,
+    encryptFieldSet,
+    normalizeFrequenciesFieldSet,
+    generateFakeTextFieldSet,
+    mapThroughDictionaryFieldSet
+];
+
 restoreDefaultsButton.addEventListener("click", () => {
     getConfigShorthandFromUI();
     //getConfigShorthandFromDefaults();
 });
 
-function getDefaultConfig() {
+function getDefaultConfigFromStorage() {
     return new Promise((resolve, reject) => {
         chrome.storage.sync.get('defaultConfig', (result) => {
           // Pass any observed errors down the promise chain.
@@ -24,6 +34,19 @@ function getDefaultConfig() {
           }
           // Pass the data retrieved from storage down the promise chain.
           resolve(result.defaultConfig);
+        });
+    });
+}
+
+function getCurentConfigFromStorage() {
+    return new Promise((resolve, reject) => {
+        chrome.storage.sync.get('currentConfig', (result) => {
+          // Pass any observed errors down the promise chain.
+          if (chrome.runtime.lastError) {
+            return reject(chrome.runtime.lastError);
+          }
+          // Pass the data retrieved from storage down the promise chain.
+          resolve(result.currentConfig);
         });
     });
 }
@@ -38,10 +61,9 @@ function setUI(config) {
     mapThroughDictionaryFieldSet.querySelector(`input[value="${config.mapThroughDictionary}"]`).checked = true;
 }
 
-getDefaultConfig().then(defaultConfig => setUI(defaultConfig));
 
 function getConfigShorthandFromUI() {
-    let configShorthand = [0, 0, 0, 0, 0, 0];
+    const configShorthand = [0, 0, 0, 0, 0, 0];
 
     configShorthand[0] = passwordTextBox.value;
     configShorthand[1] = removeNonASCIIFieldSet.querySelector('input[type="radio"]:checked').value;
@@ -51,11 +73,22 @@ function getConfigShorthandFromUI() {
     configShorthand[5] = generateFakeTextFieldSet.querySelector('input[type="radio"]:checked').value;
     configShorthand[6] = mapThroughDictionaryFieldSet.querySelector('input[type="radio"]:checked').value;
 
-    console.log(configShorthand);
     return configShorthand;
 }
 
+function getConfigFromUI() {
+    const config = { debug:false };
 
+    config.password = passwordTextBox.value;
+    config.removeNonASCII = removeNonASCIIFieldSet.querySelector('input[type="radio"]:checked').value;
+    config.compressPlainText = compressPlaintextFieldSet.querySelector('input[type="radio"]:checked').value;
+    config.encrypt = encryptFieldSet.querySelector('input[type="radio"]:checked').value;
+    config.normalizeFrequencies = normalizeFrequenciesFieldSet.querySelector('input[type="radio"]:checked').value;
+    config.generateFakeText = generateFakeTextFieldSet.querySelector('input[type="radio"]:checked').value;
+    config.mapThroughDictionary = mapThroughDictionaryFieldSet.querySelector('input[type="radio"]:checked').value;
+
+    return config;
+}
 
 function getConfigShorthandFromDefaults() {
     let configShorthand = [0, 0, 0, 0, 0, 0];
@@ -72,6 +105,14 @@ function getConfigShorthandFromDefaults() {
     return configShorthand;
 }
 
-chrome.storage.sync.get('defaultConfig', function(result) {
-    console.log('Value currently is ' + JSON.stringify(result.defaultConfig));
-});
+//chrome.storage.sync.get('defaultConfig', function(result) {
+//    console.log('Value currently is ' + JSON.stringify(result.defaultConfig));
+//});
+
+getCurentConfigFromStorage().then(config => setUI(config));
+
+for (let i = 0; i < configControls.length; i++) {
+    configControls[i].addEventListener("change", function(e) {
+        chrome.storage.sync.set({currentConfig: getConfigFromUI ()});
+    });
+}

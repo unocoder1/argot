@@ -14,6 +14,9 @@ chrome.runtime.onInstalled.addListener(async () => {
     chrome.storage.sync.set({defaultConfig: defaultConfig}, function() {
         console.log("Default config: " + JSON.stringify(defaultConfig));
     });
+    chrome.storage.sync.set({currentConfig: defaultConfig}, function() {
+        console.log("Current config: " + JSON.stringify(defaultConfig));
+    });
 
     chrome.contextMenus.create({
         id: "encodeMenu",
