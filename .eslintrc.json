@@ -12,6 +12,7 @@
         "indent": ["error", 4],
         "max-len": ["error", { "code": 202 }],
         "no-console": 0,
-        "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+        "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "no-continue": 0
     }
   }
