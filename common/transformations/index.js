@@ -1,20 +1,20 @@
 module.exports.RemoveNonASCII = require('./remove-non-ascii');
 module.exports.Compress = require('./compress');
 module.exports.Encrypt = require('./encrypt');
-module.exports.FixFrequencies = require('./fix-frequencies');
+module.exports.NormalizeFrequencies = require('./normalize-frequencies');
 module.exports.GenerateFakeText = require('./generate-fake-text');
 module.exports.GenerateFakeText2 = require('./generate-fake-text-2');
 module.exports.MapThroughDictionary = require('./map-through-dictionary');
 
 module.exports.createTransformation = (config) => {
     var transformations = [];
-    if (config.removeNonASCII === true) { transformations.push(module.exports.RemoveNonASCII); }
-    if (config.compressPlainText === true) { transformations.push(module.exports.Compress); }
+    if (config.removeNonASCII === "1") { transformations.push(module.exports.RemoveNonASCII); }
+    if (config.compressPlainText === "1") { transformations.push(module.exports.Compress); }
     // TODO: Assert if password is provided.
-    if (config.encrypt === true) { transformations.push(module.exports.Encrypt); }
-    if (config.fixFrequencies === true) { transformations.push(module.exports.FixFrequencies); }
-    if (config.generateFakeText === true) { transformations.push(module.exports.GenerateFakeText2); }
-    if (config.mapThroughDictionary === true) { transformations.push(module.exports.MapThroughDictionary); }
+    if (config.encrypt === "A") { transformations.push(module.exports.Encrypt); }
+    if (config.normalizeFrequencies === "1") { transformations.push(module.exports.NormalizeFrequencies); }
+    if (config.generateFakeText === "A") { transformations.push(module.exports.GenerateFakeText2); }
+    if (config.mapThroughDictionary === "1") { transformations.push(module.exports.MapThroughDictionary); }
 
     return {
         getEncoded: (config, text) => {
