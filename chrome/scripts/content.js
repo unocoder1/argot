@@ -35,14 +35,14 @@ chrome.storage.sync.get('currentConfig', (result) => {
     const editorEncodeButton = editorOriginalSubmitButton.cloneNode(false);
     editorEncodeButton.id += 0; // TODO: Ensure unique ID.
     editorEncodeButton.textContent = 'Encode';
-    editorEncodeButton.onclick = function () {
+    editorEncodeButton.onclick = () => {
         editorArea.value = TextSteganography.getEncodedText(currentConfig, editorArea.value);
         return false; // Return false to stop form submit.
     };
     editorOriginalSubmitButton.parentNode.appendChild(editorEncodeButton);
     const editorNewSubmitButton = editorOriginalSubmitButton.cloneNode(false);
     editorNewSubmitButton.id += 1; // TODO: Ensure unique ID.
-    editorNewSubmitButton.onclick = function () {
+    editorNewSubmitButton.onclick = () => {
         editorArea.value = TextSteganography.getEncodedText(currentConfig, editorArea.value);
         return true; // Return true to NOT stop form submit.
     };
@@ -51,7 +51,8 @@ chrome.storage.sync.get('currentConfig', (result) => {
 
     textsToHide.forEach((currentValue, _currentIndex, _listObj) => {
         try {
-            currentValue.innerText = TextSteganography.getDecodedText(currentConfig, currentValue.innerText);
+            const element = currentValue;
+            element.innerText = TextSteganography.getDecodedText(currentConfig, currentValue.innerText);
         } catch (error) {
             console.log(error);
         }

@@ -10,7 +10,8 @@
     },
     "rules": {
         "indent": ["error", 4],
-        "max-len": ["error", { "code": 150 }],
-        "no-console": 0
+        "max-len": ["error", { "code": 202 }],
+        "no-console": 0,
+        "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
     }
   }
