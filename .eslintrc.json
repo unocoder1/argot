@@ -13,6 +13,7 @@
         "max-len": ["error", { "code": 202 }],
         "no-console": 0,
         "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-        "no-continue": 0
+        "no-continue": 0,
+        "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"]
     }
   }
