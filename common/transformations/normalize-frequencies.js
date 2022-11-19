@@ -45,8 +45,8 @@ module.exports = {
         let encodingBuffer = '';
         for (const c of binaryString) {
             encodingBuffer += c;
-            if (encodingBuffer in huffmanReverseTable) {
-                encodedText += huffmanReverseTable[encodingBuffer];
+            if (huffmanReverseTable.has(encodingBuffer)) {
+                encodedText += huffmanReverseTable.get(encodingBuffer);
                 encodingBuffer = '';
             }
         }
@@ -70,7 +70,7 @@ module.exports = {
             } else if (c === '?') {
                 binaryString += '1';
             } else {
-                binaryString += huffmanTable[c];
+                binaryString += huffmanTable.get(c);
             }
         }
         const decodedText = [];

@@ -38,8 +38,8 @@ module.exports = {
     getEncoded: (_config, text) => {
         let encodedText = '';
         for (const c of text) {
-            if (c in dictionary) {
-                encodedText += dictionary[c];
+            if (dictionary.has(c)) {
+                encodedText += dictionary.get(c);
             } else {
                 encodedText += c;
             }
@@ -52,8 +52,8 @@ module.exports = {
         let decodedText = '';
         const words = text.trim().split(/\s+/);
         for (const w of words) {
-            if (w in dictionaryReverse) {
-                decodedText += dictionaryReverse[w];
+            if (dictionaryReverse.has(w)) {
+                decodedText += dictionaryReverse.get(w);
             } else {
                 decodedText += w;
             }

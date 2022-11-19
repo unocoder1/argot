@@ -39,8 +39,8 @@ module.exports = {
         let encodedText = '';
         const words = text.trim().split(/\s+/);
         for (const w of words) {
-            if (w in dictionary) {
-                encodedText += dictionary[w];
+            if (dictionary.has(w)) {
+                encodedText += dictionary.get(w);
             } else {
                 encodedText += w;
             }
@@ -53,8 +53,8 @@ module.exports = {
         let decodedText = '';
         const words = text.trim().split(/\s+/);
         for (const w of words) {
-            if (w in dictionaryReverse) {
-                decodedText += dictionaryReverse[w];
+            if (dictionaryReverse.has(w)) {
+                decodedText += dictionaryReverse.get(w);
             } else {
                 decodedText += w;
             }
