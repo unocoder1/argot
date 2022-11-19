@@ -1,36 +1,35 @@
-const dictionary = {
-    A: 'a',
-    big: 'barack',
-    cat: 'cérna',
-    did: 'dereng',
-    eat: 'egy',
-    fairly: 'fa',
-    great: 'gereblye',
-    heaps: 'ha',
-    in: 'is',
-    Jordan: 'jó',
-    Kitty: 'kell',
-    limited: 'le',
-    my: 'mert',
-    network: 'nem',
-    of: 'ont',
-    people: 'pitypang',
-    quality: 'qilyenbetunknincs',
-    rare: 'rá',
-    should: 'se',
-    take: 'te',
-    under: 'unom',
-    very: 'vagy',
-    way: 'Weöres',
-    xenon: 'xilofon',
-    you: 'Ybl',
-    zebra: 'zöld',
-};
+const dictionary = new Map([
+    ['A', 'a'],
+    ['big', 'barack'],
+    ['cat', 'cérna'],
+    ['did', 'dereng'],
+    ['eat', 'egy'],
+    ['fairly', 'fa'],
+    ['great', 'gereblye'],
+    ['heaps', 'ha'],
+    ['in', 'is'],
+    ['Jordan', 'jó'],
+    ['Kitty', 'kell'],
+    ['limited', 'le'],
+    ['my', 'mert'],
+    ['network', 'nem'],
+    ['of', 'ont'],
+    ['people', 'pitypang'],
+    ['quality', 'qilyenbetunknincs'],
+    ['rare', 'rá'],
+    ['should', 'se'],
+    ['take', 'te'],
+    ['under', 'unom'],
+    ['very', 'vagy'],
+    ['way', 'Weöres'],
+    ['xenon', 'xilofon'],
+    ['you', 'Ybl'],
+    ['zebra', 'zöld'],
+]);
 
-const temp = {};
-for (const key in dictionary) {
-    const value = dictionary[key];
-    temp[value] = key;
+const temp = new Map();
+for (const [key, value] of dictionary) {
+    temp.set(value, key);
 }
 const dictionaryReverse = temp;
 
