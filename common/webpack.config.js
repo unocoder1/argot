@@ -1,35 +1,34 @@
 const webpack = require('webpack');
-const path = require('path');
 
 const config = {
-    mode: "production",
+    mode: 'production',
     entry: './index.js',
     output: {
-        path: __dirname,
+        path: `${__dirname}/bundle`,
         filename: 'text-steganography-bundled.js',
         library: {
-            name: "TextSteganography",
-            type: "var" 
+            name: 'TextSteganography',
+            type: 'var',
         },
     },
     resolve: {
         alias: {
-            "buffer": "buffer"
+            buffer: 'buffer',
         },
         fallback: {
-            "assert": require.resolve("assert/"),
-            "buffer": require.resolve("buffer/"),
-            "crypto": require.resolve("crypto-browserify"),
-            "stream": require.resolve("stream-browserify"),
-            "zlib": require.resolve("browserify-zlib")
-        }
+            assert: require.resolve('assert/'),
+            buffer: require.resolve('buffer/'),
+            crypto: require.resolve('crypto-browserify'),
+            stream: require.resolve('stream-browserify'),
+            zlib: require.resolve('browserify-zlib'),
+        },
     },
     optimization: {
-        minimize: false
+        minimize: false,
     },
     plugins: [
         new webpack.DefinePlugin({
-          'process.env.NODE_DEBUG': "false",
+            'process.env.NODE_DEBUG': 'false',
         }),
         new webpack.ProvidePlugin({
             Buffer: ['buffer', 'Buffer'],

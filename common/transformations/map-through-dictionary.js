@@ -1,67 +1,66 @@
-const dictionary = {
-    "A": "a",
-    "big": "barack",
-    "cat": "cérna",
-    "did": "dereng",
-    "eat": "egy",
-    "fairly": "fa",
-    "great": "gereblye",
-    "heaps": "ha",
-    "in": "is",
-    "Jordan": "jó",
-    "Kitty": "kell",
-    "limited": "le",
-    "my": "mert",
-    "network": "nem",
-    "of": "ont",
-    "people": "pitypang",
-    "quality": "qilyenbetunknincs",
-    "rare": "rá",
-    "should": "se",
-    "take": "te",
-    "under": "unom",
-    "very": "vagy",
-    "way": "Weöres",
-    "xenon": "xilofon",
-    "you": "Ybl",
-    "zebra": "zöld",
-};
+const dictionary = new Map([
+    ['A', 'a'],
+    ['big', 'barack'],
+    ['cat', 'cérna'],
+    ['did', 'dereng'],
+    ['eat', 'egy'],
+    ['fairly', 'fa'],
+    ['great', 'gereblye'],
+    ['heaps', 'ha'],
+    ['in', 'is'],
+    ['Jordan', 'jó'],
+    ['Kitty', 'kell'],
+    ['limited', 'le'],
+    ['my', 'mert'],
+    ['network', 'nem'],
+    ['of', 'ont'],
+    ['people', 'pitypang'],
+    ['quality', 'qilyenbetunknincs'],
+    ['rare', 'rá'],
+    ['should', 'se'],
+    ['take', 'te'],
+    ['under', 'unom'],
+    ['very', 'vagy'],
+    ['way', 'Weöres'],
+    ['xenon', 'xilofon'],
+    ['you', 'Ybl'],
+    ['zebra', 'zöld'],
+]);
 
-var temp = {};
-for(const key in dictionary) {
-    const value = dictionary[key];
-    temp[value] = key;
+const temp = new Map();
+for (const [key, value] of dictionary) {
+    temp.set(value, key);
 }
 const dictionaryReverse = temp;
 
 module.exports = {
 
     getEncoded: (_config, text) => {
-        var encodedText = "";
+        let encodedText = '';
         const words = text.trim().split(/\s+/);
-        for (const w of words){
-            if (w in dictionary) {
-                encodedText += dictionary[w];
+        for (const w of words) {
+            if (dictionary.has(w)) {
+                encodedText += dictionary.get(w);
             } else {
                 encodedText += w;
             }
-            encodedText += " ";
+            encodedText += ' ';
         }
         return encodedText;
     },
 
     getDecoded: (_config, text) => {
-        var decodedText = "";
+        let decodedText = '';
         const words = text.trim().split(/\s+/);
         for (const w of words) {
-            if (w in dictionaryReverse) {
-                decodedText += dictionaryReverse[w];
+            if (dictionaryReverse.has(w)) {
+                decodedText += dictionaryReverse.get(w);
             } else {
                 decodedText += w;
             }
-            decodedText += " ";
+            decodedText += ' ';
         }
         return decodedText;
-    }
+    },
 
 };

@@ -1,0 +1,19 @@
+{
+    "extends": ["airbnb-base"],
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "indent": ["error", 4],
+        "max-len": ["error", { "code": 202 }],
+        "no-console": 0,
+        "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "no-continue": 0,
+        "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"]
+    }
+  }

@@ -1,23 +1,23 @@
 const transformations = require('./transformations');
 
-module.exports.getEncodedText = function (config, originalText) {
-	if (config.debug === true) return "debug";
+module.exports.getEncodedText = (config, originalText) => {
+    if (config.debug === true) return 'debug';
 
-	var concealedText = originalText.slice();
+    let concealedText = originalText.slice();
 
-	const transformation = transformations.createTransformation(config);
-	concealedText = transformation.getEncoded(config, originalText);
+    const transformation = transformations.createTransformation(config);
+    concealedText = transformation.getEncoded(config, originalText);
 
-	return concealedText;
-}
+    return concealedText;
+};
 
-module.exports.getDecodedText = function (config, originalText) {
-	if (config.debug === true) return "debug";
+module.exports.getDecodedText = (config, originalText) => {
+    if (config.debug === true) return 'debug';
 
-	var concealedText = originalText.slice();
+    let concealedText = originalText.slice();
 
-	const transformation = transformations.createTransformation(config);
-	concealedText = transformation.getDecoded(config, originalText);
+    const transformation = transformations.createTransformation(config);
+    concealedText = transformation.getDecoded(config, originalText);
 
-	return concealedText;
-}
+    return concealedText;
+};

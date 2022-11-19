@@ -1,6 +1,5 @@
 const crypto = require('crypto');
 
-
 const algorithm = 'aes256';
 
 module.exports = {
@@ -13,6 +12,6 @@ module.exports = {
     getDecoded: (config, text) => {
         const decipher = crypto.createDecipher(algorithm, config.password);
         return decipher.update(text, 'base64', 'utf8') + decipher.final('utf8');
-    }
+    },
 
 };
